@@ -19,6 +19,19 @@ jobs:
         with:
           hugo-version: '0.68.3'
           extended: true
+          
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+          
+      - name: Install global dependencies
+        run: |
+          npm install -g postcss-cli
+          npm install -g autoprefixer
+      
+      - name: Install Node dependencies
+        run: npm install
 
       - name: Build
         run: hugo --minify -s exampleSite --themesDir=../..
