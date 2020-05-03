@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="text-center">
+    <h1 class="font-serif font-thin text-5xl text-gray-700">{{ .Title }}</h1>
+    <div class="markdown">
+    {{ .Content }}
+    </div>
+</article>
+<div class="markdown text-center">
+    <h2>Entry notes</h2>
+</div>
+<div class="note-container sm:column-count-1 md:column-count-2 xl:column-count-3">
+{{ range where .Site.Pages "Params.entry" true }}
+    <div class="note-item">
+    {{ partial "widgets/note.html" . }}
+    </div>
+{{ end }}
+</div>
+{{ end }}

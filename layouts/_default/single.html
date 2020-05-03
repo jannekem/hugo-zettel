@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ $fileReference := lower (replace $.File "\\" "/") }}
+<article class="text-gray-700 sm:mx-auto container max-w-3xl">
+    {{ range .Params.tags }}
+        {{ partial "widgets/tag" (dict "tag" .) }}
+    {{ end }}
+    <div class="markdown">
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+        {{ with .Params.links }}
+        <h2>Links</h2>
+            <ul>
+            {{ range . }}
+            {{ with $.Site.GetPage . }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+            {{ end }}
+            </ul>
+        {{ end }}
+        {{ with .Site.Taxonomies.links }}
+            {{ $linkedFrom := index . $fileReference }}
+            {{ with $linkedFrom }}
+                <h2>Linked from</h2>
+                <ul>
+                {{ range . }}
+                    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                {{ end }}
+                </ul>
+            {{ end }}
+        {{ end }}
+        <hr/>
+        <p><span class="font-bold">File reference: </span>{{ $fileReference }}</p>
+    </div>
+</article>
+{{ end }}

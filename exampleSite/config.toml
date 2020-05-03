@@ -1,0 +1,24 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Hugo Zettel"
+
+theme = "hugo-zettel"
+
+[params]
+    cardContentLength = 500
+
+[taxonomies]
+    tag = "tags"
+    link = "links"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 4

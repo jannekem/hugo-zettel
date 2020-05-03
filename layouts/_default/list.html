@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="note-container">
+{{ range .Pages }}
+    <div class="note-item">
+    {{ partial "widgets/note.html" . }}
+    </div>
+{{ end }}
+</div>
+{{ end }}

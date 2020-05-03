@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="markdown">
+    <a href="/tags">Back to tags</a>
+    <h1>{{ .Title }}</h1>
+</div>
+<div class="note-container sm:column-count-1 md:column-count-2 xl:column-count-3">
+{{ range .Pages }}
+    <div class="note-item">
+    {{ partial "widgets/note.html" . }}
+    </div>
+{{ end }}
+</div>
+{{ end }}

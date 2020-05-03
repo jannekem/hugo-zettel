@@ -1,0 +1,8 @@
+{{ define "main" }}
+<div class="markdown">
+    <h1>Tags</h1>
+</div>
+{{ range .Data.Terms.ByCount }}
+    {{ partial "widgets/tag.html" (dict "tag" .Page.Title "count" .Count)}}
+{{ end }}
+{{ end }}
