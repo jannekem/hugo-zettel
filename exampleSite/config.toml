@@ -4,6 +4,7 @@ title = "Hugo Zettel"
 
 theme = "hugo-zettel"
 pluralizelisttitles = false
+canonifyURLs = true
 
 [params]
     cardContentLength = 500
