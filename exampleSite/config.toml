@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Hugo Zettel"
 
 theme = "hugo-zettel"
+pluralizelisttitles = false
 
 [params]
     cardContentLength = 500
